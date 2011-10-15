@@ -20,6 +20,7 @@ class User
       res << map
     }
     
+    db.close
     return false if res.size == 0
     user_info = res[0]
 
@@ -52,7 +53,10 @@ class User
       }
       res << map
     }
-    return false if res.size > 0
+    if res.size > 0 then
+      db.close
+      return false
+    end
 
     utils = Utils.new
     salt = utils.generate_random_str(5)
@@ -61,7 +65,7 @@ class User
     time = utils.get_current_time
         
     db.make_query("INSERT INTO accounts (username, password, date_reg, salt) values ('" + username +"', '" + password +"', '" + time +"','" + salt + "')")
-    
+    db.close
     return true
   end
 end
