@@ -1,0 +1,17 @@
+%h1 Login  
+%p
+  %form{ :action => "/login", :method => "post"}
+    %table
+      %tr
+        %td username
+        %td
+          %input{ :type => "text", :name => "username"}
+      
+      %tr
+        %td password
+        %td 
+          %input{ :type => "password", :name => "password"}
+      %tr
+        %td{ :colspan => "2"}
+          %input{:type => "submit", :value=>"login"}
+        

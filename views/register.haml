@@ -1,0 +1,21 @@
+%h1 Register
+%p
+  %form{ :action => "/register", :method => "post"}
+    %table
+      %tr
+        %td username
+        %td
+          %input{ :type => "text", :name => "username"}
+      
+      %tr
+        %td password
+        %td 
+          %input{ :type => "password", :name => "pwd"}
+      %tr
+        %td confirm password
+        %td 
+          %input{ :type => "password", :name => "cpwd"}
+      %tr
+        %td{ :colspan => "2"}
+          %input{:type => "submit", :value=>"login"}
+        

@@ -1,0 +1,33 @@
+require 'rubygems'
+require 'sinatra'
+require 'haml'
+require 'connector.rb'
+require 'models/user.rb'
+
+get '/hi' do
+  
+  db = MysqlConnect.new
+  res = db.make_query("SELECT * from student", true)
+  
+  res.each_hash do |row|
+    puts row['id']
+    puts row['name']
+  end
+  haml :hi
+end
+
+get '/' do
+  haml :index
+end
+
+post '/login' do
+  username = params[:username] 
+  password = params[:password]
+
+  user = User.new
+  if user.try_login(username, password) then
+    haml :login_success
+  else
+    haml :login_failure
+  end
+end

@@ -1,0 +1,15 @@
+require 'config.rb'
+
+get '/hi' do
+
+    res = @db.query('select * from student')
+    res.each do |row| 
+      puts row
+    end
+    @db.close
+    "Hello, world!!!"
+end
+
+require 'header.rb'
+
+#Sequel.connect('mysql://user:password@host:port/db_name')
