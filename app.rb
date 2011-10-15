@@ -7,14 +7,14 @@ require 'utils.rb'
 
 get '/hi' do
   
-  db = MysqlConnect.new
-  res = db.make_query("SELECT * from student", true)
+  #db = MysqlConnect.new
+  #res = db.make_query("SELECT * from student", true)
   
-  res.each_hash do |row|
-    puts row['id']
-    puts row['name']
-  end
-  haml :hi
+  #res.each_hash do |row|
+  #  puts row['id']
+  #  puts row['name']
+  #end
+  #haml :hi
 end
 
 get '/' do
@@ -57,8 +57,13 @@ post '/register' do
   params['pwd'] = pwd;
   
   user = User.new
-  user.register(params)
+  status = user.register(params)
   
+  if status then
+    redirect "/hi"
+  else
+    redirect "/register"
+  end
 end
 
 get '/register' do
