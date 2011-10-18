@@ -85,5 +85,5 @@ get '/upload' do
     filename= params['file'][:filename]
     File.copy(tempfile.path,"./uploadedFiles/#{filename}")
     redirect '/upload'
-    puts "{#upload_pic}"
+    puts "#{upload_pic}"
 end
