@@ -1,0 +1,19 @@
+%h1 Upload util
+%form{ :action => "/upload", :method => "post", :enctype => "multipart/form-data"}
+  %table
+    %tr
+      %td Category
+      %td select
+    %tr
+      %td Title
+      %td %input{ :type => "text", :name => "title"}
+    %tr
+      %td Tags
+      %td %input{ :type => "text", :name => "title"}
+    %tr
+      %td Upload a Picture
+      %td
+        %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
+        %input{ :type => "file", :name => "file"}
+        %input{ :type => "submit", :value => "Upload"}
+

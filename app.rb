@@ -6,8 +6,6 @@ require 'models/user.rb'
 require 'utils.rb'
 enable :sessions
 
-enable :sessions
-
 get '/hi' do
   
 
@@ -84,6 +82,13 @@ end
 
 get '/register' do
   haml :register
+end
+
+get '/search' do
+  category = params[:category]
+  name = params[:name]
+  
+  
 end
 
 post '/logout' do
