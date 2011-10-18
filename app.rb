@@ -3,6 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'connector.rb'
 require 'models/user.rb'
+require 'models/photo.rb'
 require 'utils.rb'
 enable :sessions
 
@@ -44,6 +45,11 @@ post '/login' do
   else
     haml :login_failure
   end
+end
+
+post '/logout' do
+  session['id'] = nil
+  session['username'] = nil
 end
 
 post '/register' do
@@ -91,9 +97,15 @@ get '/search' do
   
 end
 
-post '/logout' do
-  session['id'] = nil
-  session['username'] = nil
+get '/view/:id' do
+  
+  id = params[:id]
+  id = id.to_i
+  
+  photo = Photo.new
+  info = photo.find_by_id(id)
+  
+  haml :view
 end
 
 get '/upload' do
@@ -106,16 +118,30 @@ post '/upload' do
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
-          @error = "No file selected"
+          
           redirect '/upload'
     end 
     unless params[:file][:filename].nil?
     tempfile = params[:file][:tempfile]
-    name = params[:file][:filename]
+    
+    utils = Utils.new
+    name = utils.generate_random_str(25)
     dir = "./uploadedFiles/"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
+    
+    pars = {
+      'category' => params[:category],
+      'title' => params[:title],
+      'description' => params[:description],
+      'tags' => params[:tags],
+      'name' => name,
+    }
+    
+    photos = Photo.new
+    photos.add_photo(pars)
+            
     redirect '/upload'
     end
 end
