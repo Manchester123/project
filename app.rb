@@ -75,7 +75,6 @@ end
 get '/upload' do
     haml :upload_pic
 
-
 end
 
 post '/upload' do
