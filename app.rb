@@ -84,8 +84,8 @@ post '/upload' do
                (name = params[:file][:filename])
           @error = "No file selected"
           redirect '/upload'
-    end
-
+    end 
+    unless params[:file][:filename].nil?
     tempfile = params[:file][:tempfile]
     name = params[:file][:filename]
     dir = "./uploadedFiles/"
@@ -93,7 +93,7 @@ post '/upload' do
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
     redirect '/upload'
-
+    end
 end
 
 
