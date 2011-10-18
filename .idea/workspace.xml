@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d421462-76bd-490f-9b4c-f1194914c63e" name="Default" comment="" />
+    <list default="true" id="9d421462-76bd-490f-9b4c-f1194914c63e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload_pic.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="upload_pic.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/upload_pic.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="47" selection-start="243" selection-end="243" vertical-scroll-proportion="0.13125">
+            <state line="7" column="47" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="25" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
+            <state line="87" column="28" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.85">
               <folding />
             </state>
           </provider>
@@ -143,6 +145,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,7 +226,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,16 +420,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/login_success.haml">
+    <entry file="file://$PROJECT_DIR$/views/upload_pic.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="9" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
+        <state line="7" column="47" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/register.haml">
+    <entry file="file://$PROJECT_DIR$/public/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="57" selection-start="118" selection-end="177" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login_success.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="9" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -446,23 +455,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/register.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="57" selection-start="118" selection-end="177" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="25" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/upload_pic.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="47" selection-start="243" selection-end="243" vertical-scroll-proportion="0.13125">
+        <state line="87" column="28" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.85">
           <folding />
         </state>
       </provider>
