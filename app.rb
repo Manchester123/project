@@ -72,23 +72,29 @@ get '/register' do
   haml :register
 end
 
-#get '/upload' do
-#    haml :upload_pic
+get '/upload' do
+    haml :upload_pic
 
-    #unless params[:file] &&
-    #           (tmpfile = params[:file][:tempfile]) &&
-    #           (name = params[:file][:filename])
-    #      @error = "No file selected"
-    #      return haml(:upload)
-    #    end
-#end
+
+end
 
 post '/upload' do
-    haml :upload_pic
-    tempfile = params['file'][:tempfile]
-    filename= params['file'][:filename]
-    File.copy_stream(filename,"./uploadedFiles/#{filename}")
-    puts "#{filename}"
+
+    unless params[:file] &&
+               (tempfile = params[:file][:tempfile]) &&
+               (name = params[:file][:filename])
+          @error = "No file selected"
+          redirect '/upload'
+    end
+
+    tempfile = params[:file][:tempfile]
+    name = params[:file][:filename]
+    dir = "./uploadedFiles/"
+    path = File.join(dir, name)
+
+    File.open(path, "wb"){|f| f.write(tempfile.read)}
     redirect '/upload'
 
 end
+
+

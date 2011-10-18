@@ -1,5 +1,5 @@
 %h1 Upload util
-%form{ :action => "/Upload", :method => "post"}
+%form{ :action => "/upload", :method => "post", :enctype => "multipart/form-data"}
   %table
     %tr
       %td Upload a Picture
@@ -7,4 +7,3 @@
         %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
         %input{ :type => "file", :name => "file"}
         %input{ :type => "submit", :value => "Upload"}
-
