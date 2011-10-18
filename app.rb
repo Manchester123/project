@@ -87,8 +87,8 @@ post '/upload' do
     haml :upload_pic
     tempfile = params['file'][:tempfile]
     filename= params['file'][:filename]
-    File.copy_stream(upload_pic,"./uploadedFiles/#{filename}")
-    puts "#{upload_pic}"
+    File.copy_stream(filename,"./uploadedFiles/#{filename}")
+    puts "#{filename}"
     redirect '/upload'
 
 end
