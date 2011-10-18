@@ -73,4 +73,17 @@ end
 
 get '/upload' do
     haml :upload_pic
+
+    #unless params[:file] &&
+    #           (tmpfile = params[:file][:tempfile]) &&
+    #           (name = params[:file][:filename])
+    #      @error = "No file selected"
+    #      return haml(:upload)
+    #    end
+
+    tempfile = params['file'][:tempfile]
+    filename= params['file'][:filename]
+    File.copy(tempfile.path,"./uploadedFiles/#{filename}")
+    redirect '/upload'
+    puts "{#upload_pic}"
 end

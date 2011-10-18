@@ -1,12 +1,9 @@
-!!!
-#main
-%h1 Upload a new Picture
-  %p
-    %form{ :action => "/Upload", :method => "post"}
-    %table
-      %tr
-        %td Upload a Picture
-        %td
-          %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
-          %input{ :type => "file"}
-
+%h1 Upload util
+%form{ :action => "/Upload", :method => "post"}
+  %table
+    %tr
+      %td Upload a Picture
+      %td
+        %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
+        %input{ :type => "file", :name => "file"}
+        %input{ :type => "submit", :value => "Upload"}
