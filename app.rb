@@ -16,7 +16,8 @@ get '/hi' do
   end
 
   session['count']+=1
-  session['count'].to_s
+  session['username'].to_s
+  #session['id'].to_s
   #db = MysqlConnect.new
   #res = db.make_query("SELECT * from student", true)
   
