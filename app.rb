@@ -5,9 +5,16 @@ require 'connector.rb'
 require 'models/user.rb'
 require 'utils.rb'
 
+enable :sessions
 
 get '/hi' do
   
+  if (session['count'] == nil) then
+    session['count'] = 0
+  end
+
+  session['count']+=1
+  session['count'].to_s
   #db = MysqlConnect.new
   #res = db.make_query("SELECT * from student", true)
   
@@ -28,6 +35,11 @@ post '/login' do
 
   user = User.new
   if user.try_login(username, password) then
+    
+    user_info = user.get_user_info_by_name(username)
+    session['id'] = user_info['id']
+    session['username'] = user_info['username']
+    
     haml :login_success
   else
     haml :login_failure
@@ -69,4 +81,9 @@ end
 
 get '/register' do
   haml :register
+end
+
+post '/logout' do
+  session['id'] = nil
+  session['username'] = nil
 end
