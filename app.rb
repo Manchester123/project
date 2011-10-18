@@ -4,9 +4,17 @@ require 'haml'
 require 'connector.rb'
 require 'models/user.rb'
 require 'utils.rb'
+enable :sessions
 
 get '/hi' do
   
+  'hello, world!!!'
+
+  if (session['count'] == nil) then
+    session['count'] = 0;
+  end
+  session['count']+=1
+  session['count'].to_s
   #db = MysqlConnect.new
   #res = db.make_query("SELECT * from student", true)
   
