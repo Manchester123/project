@@ -7,7 +7,6 @@ require 'utils.rb'
 enable :sessions
 
 get '/hi' do
-  
 
   if (session['count'] == nil) then
     session['count'] = 0
@@ -84,6 +83,7 @@ get '/register' do
   haml :register
 end
 
+
 get '/search' do
   category = params[:category]
   name = params[:name]
@@ -95,3 +95,28 @@ post '/logout' do
   session['id'] = nil
   session['username'] = nil
 end
+
+get '/upload' do
+    haml :upload_pic
+
+end
+
+post '/upload' do
+
+    unless params[:file] &&
+               (tempfile = params[:file][:tempfile]) &&
+               (name = params[:file][:filename])
+          @error = "No file selected"
+          redirect '/upload'
+    end 
+    unless params[:file][:filename].nil?
+    tempfile = params[:file][:tempfile]
+    name = params[:file][:filename]
+    dir = "./uploadedFiles/"
+    path = File.join(dir, name)
+
+    File.open(path, "wb"){|f| f.write(tempfile.read)}
+    redirect '/upload'
+    end
+end
+
