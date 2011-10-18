@@ -5,6 +5,7 @@ require 'connector.rb'
 require 'models/user.rb'
 require 'utils.rb'
 
+
 get '/hi' do
   
   #db = MysqlConnect.new
