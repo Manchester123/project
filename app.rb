@@ -4,6 +4,7 @@ require 'haml'
 require 'connector.rb'
 require 'models/user.rb'
 require 'utils.rb'
+require 'fileutils'
 
 
 get '/hi' do
@@ -71,8 +72,8 @@ get '/register' do
   haml :register
 end
 
-get '/upload' do
-    haml :upload_pic
+#get '/upload' do
+#    haml :upload_pic
 
     #unless params[:file] &&
     #           (tmpfile = params[:file][:tempfile]) &&
@@ -80,10 +81,14 @@ get '/upload' do
     #      @error = "No file selected"
     #      return haml(:upload)
     #    end
+#end
 
+post '/upload' do
+    haml :upload_pic
     tempfile = params['file'][:tempfile]
     filename= params['file'][:filename]
-    File.copy(tempfile.path,"./uploadedFiles/#{filename}")
-    redirect '/upload'
+    File.copy_stream(upload_pic,"./uploadedFiles/#{filename}")
     puts "#{upload_pic}"
+    redirect '/upload'
+
 end
