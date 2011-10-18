@@ -70,3 +70,7 @@ end
 get '/register' do
   haml :register
 end
+
+get '/upload' do
+    haml :upload_pic
+end
