@@ -4,6 +4,7 @@ require 'haml'
 require 'connector.rb'
 require 'models/user.rb'
 require 'models/photo.rb'
+require 'models/comment.rb'
 require 'utils.rb'
 enable :sessions
 
@@ -146,8 +147,20 @@ post '/upload' do
     end
     
 end
+
 get '/view/:id' do
 
-  haml :show_image 
+  id = params[:id]
+  comment = Comment.new
+  @comment_info = comment.get_comment(id)
 
+  haml :show_image 
+end
+
+post '/comment' do
+  
+  comment = Comment.new
+  comment.add_comment(params)
+  
+  redirect '/view/1'
 end

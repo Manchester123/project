@@ -1,10 +1,19 @@
 %h1 title
+
 %img{:src=>"http://www.amiright.com/album-covers/images/album-The-Rolling-Stones-Some-Girls.jpg"}
-%form{:action=>"/post", :method=>"post"}
+%form{:action=>"/comment", :method=>"post"}
   %table
     %tr
       %td
-        %textarea{ :name => "comment"}
+        %textarea{ :name => "description"}
     %tr
       %td
         %input{ :type => "submit", :value => "Submit"}
+        %input{ :type => "hidden", :name => "user_id", :value => "1"}
+        %input{ :type => "hidden", :name => "pic_id", :value => "1"}
+= @comment_info
+- if @comment_info.size > 0 then
+  %p comments!!
+- else
+  %p no comments :(
+
