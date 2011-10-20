@@ -22,4 +22,9 @@ describe Photo do
     info['id'].should == 3
   end
 
+  it "should retrun false if photo not found" do
+    info = @photo.find_by_id(3)
+    info.length.should == 0
+  end
+
 end

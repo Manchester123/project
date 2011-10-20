@@ -1,0 +1,10 @@
+%h1 title
+%img{:src=>"http://www.amiright.com/album-covers/images/album-The-Rolling-Stones-Some-Girls.jpg"}
+%form{:action=>"/post", :method=>"post"}
+  %table
+    %tr
+      %td
+        %textarea{ :name => "comment"}
+    %tr
+      %td
+        %input{ :type => "submit", :value => "Submit"}

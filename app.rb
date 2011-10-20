@@ -97,16 +97,16 @@ get '/search' do
   
 end
 
-get '/view/:id' do
+#get '/view/:id' do
   
-  id = params[:id]
-  id = id.to_i
+#  id = params[:id]
+#  id = id.to_i
   
-  photo = Photo.new
-  info = photo.find_by_id(id)
+#  photo = Photo.new
+#  info = photo.find_by_id(id)
   
-  haml :view
-end
+#  haml :view
+#end
 
 get '/upload' do
     haml :upload_pic
@@ -144,5 +144,10 @@ post '/upload' do
             
     redirect '/upload'
     end
+    
 end
+get '/view/:id' do
 
+  haml :show_image 
+
+end
