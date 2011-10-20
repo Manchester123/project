@@ -31,4 +31,10 @@ describe User do
     status = @user.register(input)
     status.should == false
   end
+  
+  it "should return information about user" do
+    info = @user.get_user_info_by_name('darik');
+    puts info
+    true.should == true;
+  end
 end

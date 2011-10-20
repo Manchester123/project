@@ -68,4 +68,22 @@ class User
     db.close
     return true
   end
+
+  def get_user_info_by_name(username)
+    db = MysqlConnect.new
+    user_info = db.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    
+    res = []
+    user_info.each_hash{ |row|
+      map = {
+        'username' => row['username'],
+        'password' => row['password'],
+        'id' => row['id'],
+        'date_reg' => row['date_reg'],
+      }
+      res << map
+    }
+    db.close
+    return res[0]
+  end
 end

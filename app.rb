@@ -3,12 +3,19 @@ require 'sinatra'
 require 'haml'
 require 'connector.rb'
 require 'models/user.rb'
+require 'models/photo.rb'
 require 'utils.rb'
-require 'fileutils'
-
+enable :sessions
 
 get '/hi' do
-  
+
+  if (session['count'] == nil) then
+    session['count'] = 0
+  end
+
+  session['count']+=1
+  session['username'].to_s
+  #session['id'].to_s
   #db = MysqlConnect.new
   #res = db.make_query("SELECT * from student", true)
   
@@ -29,10 +36,20 @@ post '/login' do
 
   user = User.new
   if user.try_login(username, password) then
+    
+    user_info = user.get_user_info_by_name(username)
+    session['id'] = user_info['id']
+    session['username'] = user_info['username']
+    
     haml :login_success
   else
     haml :login_failure
   end
+end
+
+post '/logout' do
+  session['id'] = nil
+  session['username'] = nil
 end
 
 post '/register' do
@@ -72,6 +89,25 @@ get '/register' do
   haml :register
 end
 
+
+get '/search' do
+  category = params[:category]
+  name = params[:name]
+  
+  
+end
+
+#get '/view/:id' do
+  
+#  id = params[:id]
+#  id = id.to_i
+  
+#  photo = Photo.new
+#  info = photo.find_by_id(id)
+  
+#  haml :view
+#end
+
 get '/upload' do
     haml :upload_pic
 
@@ -82,24 +118,44 @@ post '/upload' do
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
-          @error = "No file selected"
+          
           redirect '/upload'
-    end
-
+    end 
+    unless params[:file][:filename].nil?
     tempfile = params[:file][:tempfile]
-    name = params[:file][:filename]
+    
+    utils = Utils.new
+    name = utils.generate_random_str(25)
     dir = "./uploadedFiles/"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
+    
+    pars = {
+      'category' => params[:category],
+      'title' => params[:title],
+      'description' => params[:description],
+      'tags' => params[:tags],
+      'name' => name,
+    }
+    
+    photos = Photo.new
+    photos.add_photo(pars)
+            
     redirect '/upload'
+    end
+    
+end
+get '/view/:id' do
 
 end
-
 post '/search' do
   params={};
   category=params[:category]
   key_words=params[:key_words]
   dir= "./uploadedFiles/"
+
+  haml :show_image 
+
 
 end

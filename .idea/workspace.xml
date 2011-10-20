@@ -2,74 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d421462-76bd-490f-9b4c-f1194914c63e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.app.rb.swp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/config" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploadedFiles/1w6feCiWe4GXq3nseY1rxLcH8BM45b-origin.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/bin/autospec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/bin/htmldiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/bin/ldiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/bin/rake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/bin/rspec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/diff-lcs-1.1.3.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/rake-0.9.2.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/rspec-2.6.0.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/rspec-core-2.6.4.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/rspec-expectations-2.6.0.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/cache/rspec-mocks-2.6.0.gem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/.gemtest" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/History.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/License.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/Manifest.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/README.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/bin/htmldiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/bin/ldiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/diff-lcs.gemspec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/docs/COPYING.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/docs/artistic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff-lcs.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/array.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/block.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/callbacks.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/change.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/htmldiff.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/hunk.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/ldiff.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/lib/diff/lcs/string.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/diff_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/lcs_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/patch_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/sdiff_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/spec_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/traverse_balanced_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/diff-lcs-1.1.3/spec/traverse_sequences_spec.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/.gemtest" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/CHANGES" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/MIT-LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/README.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/RRR" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/TODO" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/bin/rake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/command_line_usage.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/example/Rakefile1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/example/Rakefile2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/example/a.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/example/b.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/example/main.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/glossary.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/jamis.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/proto_rake.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/rake.1.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/rakefile.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/rational.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/release_notes/rake-0.4.14.rdoc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/1.8/gems/rake-0.9.2/doc/release_notes/rake-0.4.15.rdoc" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/3VD6PRC8XgOeNuG43654OGz7v2LZAS-origin.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/d9aszfqe964aumke2ze8t4yjn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/f3v4t1ht629y8nzvt97b2fuzj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/jzotvn8vjhsi5c13kzy6o3jub" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/k8wkztysii4z5nb5zff9k57rk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/ohn9obcmpl4uyimj9wjpce961" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/v5461oap6w83u9j4ondta882i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadedFiles/zpnn9cosvzqi68zrmuz8s6ru4" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/comment.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/photo.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/comment_spec.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/photo_spec.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/show_image.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/view.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.rb" afterPath="$PROJECT_DIR$/app.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.rb" afterPath="$PROJECT_DIR$/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/user_spec.rb" afterPath="$PROJECT_DIR$/spec/user_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/hi.haml" afterPath="$PROJECT_DIR$/views/hi.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.haml" afterPath="$PROJECT_DIR$/views/layout.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/upload_pic.haml" afterPath="$PROJECT_DIR$/views/upload_pic.haml" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,19 +62,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="34" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
+            <state line="150" column="3" selection-start="2606" selection-end="2606" vertical-scroll-proportion="0.6824408">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_pic" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="search_pic" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/search_pic">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="23" selection-start="0" selection-end="545" vertical-scroll-proportion="0.20114942">
+            <state line="7" column="23" selection-start="0" selection-end="545" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -191,8 +143,8 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/views/upload_pic.haml" />
         <option value="$PROJECT_DIR$/views/search_pic.haml" />
-        <option value="$PROJECT_DIR$/app.rb" />
         <option value="$PROJECT_DIR$/views/search_pic" />
+        <option value="$PROJECT_DIR$/app.rb" />
       </list>
     </option>
   </component>
@@ -222,7 +174,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,7 +255,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -463,7 +415,7 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14490446" sideWeight="0.6709602" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32801822" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -527,6 +479,18 @@
         <state line="34" column="31" selection-start="926" selection-end="926" vertical-scroll-proportion="0.62119365" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="34" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/upload_pic.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="116" selection-end="280" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -542,13 +506,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/register.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="68" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="15" selection-end="377" vertical-scroll-proportion="0.0">
@@ -556,28 +513,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/views/register.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="34" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/upload_pic.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="116" selection-end="280" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="34" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
+        <state line="16" column="68" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/search_pic">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="23" selection-start="0" selection-end="545" vertical-scroll-proportion="0.20114942">
+        <state line="7" column="23" selection-start="0" selection-end="545" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="3" selection-start="2606" selection-end="2606" vertical-scroll-proportion="0.6824408">
           <folding />
         </state>
       </provider>
