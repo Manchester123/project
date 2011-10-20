@@ -1,0 +1,16 @@
+%h1 Search
+%p
+  %form{ :action => "/search", :method => "post"}
+    %table
+      %tr
+        %td Category
+        %td
+          %input{ :type => "text", :name => "category"}
+
+      %tr
+        %td password
+        %td
+          %input{ :type => "password", :name => "password"}
+      %tr
+        %td{ :colspan => "2"}
+          %input{:type => "submit", :value=>"login"}
