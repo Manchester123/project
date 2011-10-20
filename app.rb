@@ -102,5 +102,4 @@ post '/search' do
   key_words=params[:key_words]
   dir= "./uploadedFiles/"
 
-
 end
