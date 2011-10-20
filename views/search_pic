@@ -5,12 +5,15 @@
       %tr
         %td Category
         %td
-          %input{ :type => "text", :name => "category"}
-
+          %select{:name => "category"}
+            %option{:value => 1} User Stories
+            %option{:value => 2} Analysis diagrams
+            %option{:value => 3} Design diagrams
+            %option{:value => 4} Retrospectives
       %tr
-        %td password
+        %td Key Words
         %td
-          %input{ :type => "password", :name => "password"}
+          %input{ :type => "text", :name => "key_words"}
       %tr
         %td{ :colspan => "2"}
-          %input{:type => "submit", :value=>"login"}
+          %input{:type => "submit", :value=>"search"}

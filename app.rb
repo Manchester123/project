@@ -96,4 +96,11 @@ post '/upload' do
 
 end
 
+post '/search' do
+  params={};
+  category=params[:category]
+  key_words=params[:key_words]
+  dir= "./uploadedFiles/"
 
+
+end
