@@ -1,4 +1,4 @@
-require '../models/comment'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
 
 describe Comment do
 

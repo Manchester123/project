@@ -1,4 +1,4 @@
-require '../models/photo'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
 
 describe Photo do
   before :each do

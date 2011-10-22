@@ -1,8 +1,0 @@
-require 'rubygems'
-require 'sinatra'
-require 'mysql'
-
-@host = 'localhost'
-@user = 'root'
-@password = 'localhost'
-@dbname = 'ruby'

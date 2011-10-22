@@ -1,5 +1,0 @@
-class Utils
-  def vaildate(input)
-    return input
-  end
-end

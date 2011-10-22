@@ -1,4 +1,3 @@
-require 'connector.rb'
 require 'md5'
 
 class Comment

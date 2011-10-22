@@ -1,5 +1,3 @@
-require 'connector.rb'
-require 'utils.rb'
 require 'md5'
 
 class Photo
