@@ -165,3 +165,11 @@ post '/comment' do
   
   redirect '/view/1'
 end
+
+get '/display' do
+   #@photos = [];
+   #for i=0..9 in
+   #  photos[i] = Photos.new('User Story', "pic"+"#{i}" ,'just a user story', '--','pic1')
+   #end
+    haml :display
+end
