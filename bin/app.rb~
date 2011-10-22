@@ -11,6 +11,12 @@ enable :sessions
 
 get '/hi' do
 
+  if (session['count'] == nil) then
+    session['count'] = 0
+  end
+
+  session['count']+=1
+  session['username'].to_s
   #session['id'].to_s
   #db = MysqlConnect.new
   #res = db.make_query("SELECT * from student", true)
