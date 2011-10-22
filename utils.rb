@@ -1,19 +1,20 @@
 require 'md5'
 
 class Utils
-  def vaildate(input)
+  def validate(input)
     #validation of string goes here
     return input
   end
 
   def validate_password(pwd, cpwd)
     return false if pwd != cpwd
-    return false if pwd.lenght < 5
+    return false if pwd.length < 5
     return true
   end
 
   def validate_username(username)
     return false if username.length < 4
+    return true
   end
 
   def generate_random_str(len = 5)

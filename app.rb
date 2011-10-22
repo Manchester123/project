@@ -61,20 +61,19 @@ post '/register' do
   
   utils = Utils.new
   username = utils.validate(username)
-  pwd = utils.validate(pwd, cpwd)
   
   if !utils.validate_password(pwd, cpwd) then
-    
+    redirect '/register'
   end
   
   if !utils.validate_username(username) then
-    
+    redirect '/register'
   end
     
   params = {};
   #params << username << pwd << cpwd
   params['username'] = username
-  params['pwd'] = pwd;
+  params['password'] = pwd;
   
   user = User.new
   status = user.register(params)
@@ -126,8 +125,8 @@ post '/upload' do
     tempfile = params[:file][:tempfile]
     
     utils = Utils.new
-    name = utils.generate_random_str(25)
-    dir = "./uploadedFiles/"
+    name = utils.generate_random_str(25) + ".jpg"
+    dir = "./public/photos"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
@@ -154,13 +153,17 @@ get '/view/:id' do
   comment = Comment.new
   @comment_info = comment.get_comment(id)
 
+  photo = Photo.new
+  @photo_info = photo.find_by_id(id)
+  p @photo_info
   haml :show_image 
 end
 
 post '/comment' do
   
+  p params
   comment = Comment.new
   comment.add_comment(params)
   
-  redirect '/view/1'
+  redirect '/view/' + params[:pic_id].to_s
 end
