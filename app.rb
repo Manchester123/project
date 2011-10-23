@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'connector.rb'
-require 'models/user.rb'
-require 'models/photo.rb'
-require 'models/comment.rb'
-require 'utils.rb'
+require File.dirname(__FILE__) + '/connector.rb'
+require File.dirname(__FILE__) +'/models/user.rb'
+require File.dirname(__FILE__) +'/models/photo.rb'
+require File.dirname(__FILE__) +'/models/comment.rb'
+require File.dirname(__FILE__) +'/utils.rb'
 enable :sessions
 
 get '/hi' do
@@ -28,10 +28,18 @@ get '/hi' do
 end
 
 get '/' do
+  if (session['id']) then
+    redirect '/upload'
+  end
   haml :index
 end
 
 post '/login' do
+
+  if (session['id']) then
+    redirect '/upload'
+  end
+
   username = params[:username] 
   password = params[:password]
 
@@ -48,9 +56,12 @@ post '/login' do
   end
 end
 
-post '/logout' do
+get '/logout' do
   session['id'] = nil
   session['username'] = nil
+  
+  redirect '/'
+  
 end
 
 post '/register' do
@@ -86,6 +97,11 @@ post '/register' do
 end
 
 get '/register' do
+
+  if(session['id']) then
+    redirect '/upload'
+  end
+
   haml :register
 end
 
@@ -109,8 +125,13 @@ end
 #end
 
 get '/upload' do
-    haml :upload_pic
 
+    if (session['id'] == nil) then
+      redirect '/'
+    end
+
+
+    haml :upload_pic
 end
 
 post '/upload' do
@@ -155,13 +176,15 @@ get '/view/:id' do
 
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
-  p @photo_info
   haml :show_image 
 end
 
 post '/comment' do
   
-  p params
+  if (session['id'].nil?) then
+    redirect '/'
+  end
+  
   comment = Comment.new
   comment.add_comment(params)
   

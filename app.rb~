@@ -28,10 +28,18 @@ get '/hi' do
 end
 
 get '/' do
+  if (session['id']) then
+    redirect '/upload'
+  end
   haml :index
 end
 
 post '/login' do
+
+  if (session['id']) then
+    redirect '/upload'
+  end
+
   username = params[:username] 
   password = params[:password]
 
@@ -48,9 +56,12 @@ post '/login' do
   end
 end
 
-post '/logout' do
+get '/logout' do
   session['id'] = nil
   session['username'] = nil
+  
+  redirect '/'
+  
 end
 
 post '/register' do
@@ -73,7 +84,7 @@ post '/register' do
   params = {};
   #params << username << pwd << cpwd
   params['username'] = username
-  params['pwd'] = pwd;
+  params['password'] = pwd;
   
   user = User.new
   status = user.register(params)
@@ -86,6 +97,11 @@ post '/register' do
 end
 
 get '/register' do
+
+  if(session['id']) then
+    redirect '/upload'
+  end
+
   haml :register
 end
 
@@ -109,6 +125,12 @@ end
 #end
 
 get '/upload' do
+
+    if (session['id'] == nil) then
+      redirect '/'
+    end
+
+
     haml :upload_pic
 
 end

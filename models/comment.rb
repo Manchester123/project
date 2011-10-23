@@ -1,4 +1,4 @@
-require 'connector.rb'
+require File.dirname(__FILE__) + '/../connector.rb'
 require 'md5'
 
 class Comment

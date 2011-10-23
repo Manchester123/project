@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %title My Sinatra Website
@@ -8,6 +7,13 @@
       #header
         %h1 FerrumLogin presents
         %h2 Welcome to our website!!!
+        = p session['username']
+         
+        - if (session['username'])
+          %p= "Welcome, #{session['username']}."
+        - else
+          %p Please login.
+            
         
       #content
         =yield

@@ -17,5 +17,5 @@
           %input{ :type => "password", :name => "cpwd"}
       %trRn
         %td{ :colspan => "2"}
-          %input{:type => "submit", :value=>"register"}
+          %input{:type => "submit", :value=>"login"}
         
