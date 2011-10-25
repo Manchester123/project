@@ -45,7 +45,7 @@ describe "App Controller" do
 	last_response.should be_redirect
     end
     
-    it "should call register method and redirect to /hi if parameters are valid" do
+    it "should call register method and redirect to / if parameters are valid" do
 	post '/register', params = {:username => 'darik', :pwd => "123543", :cpwd => "123543"}
 	user = User.new
 	user.should respond_to(:register)

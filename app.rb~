@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'connector.rb'
-require 'models/user.rb'
-require 'models/photo.rb'
-require 'models/comment.rb'
-require 'utils.rb'
+require File.dirname(__FILE__) + '/connector.rb'
+require File.dirname(__FILE__) +'/models/user.rb'
+require File.dirname(__FILE__) +'/models/photo.rb'
+require File.dirname(__FILE__) +'/models/comment.rb'
+require File.dirname(__FILE__) +'/utils.rb'
 enable :sessions
 
 get '/hi' do
@@ -132,7 +132,6 @@ get '/upload' do
 
 
     haml :upload_pic
-
 end
 
 post '/upload' do
@@ -177,13 +176,15 @@ get '/view/:id' do
 
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
-  p @photo_info
   haml :show_image 
 end
 
 post '/comment' do
   
-  p params
+  if (session['id'].nil?) then
+    redirect '/'
+  end
+  
   comment = Comment.new
   comment.add_comment(params)
   

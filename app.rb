@@ -61,7 +61,6 @@ get '/logout' do
   session['username'] = nil
   
   redirect '/'
-  
 end
 
 post '/register' do
@@ -90,7 +89,7 @@ post '/register' do
   status = user.register(params)
   
   if status then
-    redirect "/hi"
+    redirect "/"
   else
     redirect "/register"
   end
@@ -110,7 +109,6 @@ get '/search' do
   category = params[:category]
   name = params[:name]
   
-  
 end
 
 #get '/view/:id' do
@@ -129,7 +127,6 @@ get '/upload' do
     if (session['id'] == nil) then
       redirect '/'
     end
-
 
     haml :upload_pic
 end
