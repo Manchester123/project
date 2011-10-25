@@ -1,4 +1,7 @@
-#require File.dirname(__FILE__) + '/../connector.rb'
+<<<<<<< HEAD
+=======
+require File.dirname(__FILE__) + '/../connector.rb'
+>>>>>>> robdar
 require 'md5'
 
 class Comment

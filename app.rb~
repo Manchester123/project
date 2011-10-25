@@ -1,17 +1,11 @@
-#!/usr/bin/env ruby
-
 require 'rubygems'
-require 'bundler/setup'
 require 'sinatra'
 require 'haml'
-require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
-
-set :root, File.join(File.dirname(__FILE__), '..')
-#require File.dirname(__FILE__) + '/connector.rb'
-#require File.dirname(__FILE__) +'/models/user.rb'
-#require File.dirname(__FILE__) +'/models/photo.rb'
-#require File.dirname(__FILE__) +'/models/comment.rb'
-#require File.dirname(__FILE__) +'/utils.rb'
+require File.dirname(__FILE__) + '/connector.rb'
+require File.dirname(__FILE__) +'/models/user.rb'
+require File.dirname(__FILE__) +'/models/photo.rb'
+require File.dirname(__FILE__) +'/models/comment.rb'
+require File.dirname(__FILE__) +'/utils.rb'
 enable :sessions
 
 get '/hi' do
@@ -67,6 +61,7 @@ get '/logout' do
   session['username'] = nil
   
   redirect '/'
+  
 end
 
 post '/register' do
@@ -95,7 +90,7 @@ post '/register' do
   status = user.register(params)
   
   if status then
-    redirect "/"
+    redirect "/hi"
   else
     redirect "/register"
   end
@@ -115,6 +110,7 @@ get '/search' do
   category = params[:category]
   name = params[:name]
   
+  
 end
 
 #get '/view/:id' do
@@ -133,6 +129,7 @@ get '/upload' do
     if (session['id'] == nil) then
       redirect '/'
     end
+
 
     haml :upload_pic
 end
@@ -192,12 +189,4 @@ post '/comment' do
   comment.add_comment(params)
   
   redirect '/view/' + params[:pic_id].to_s
-end
-
-get '/display' do
-   #@photos = [];
-   #for i=0..9 in
-   #  photos[i] = Photos.new('User Story', "pic"+"#{i}" ,'just a user story', '--','pic1')
-   #end
-    haml :display
 end

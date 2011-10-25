@@ -1,13 +1,19 @@
-!!!
 %html
   %head
     %title My Sinatra Website
-    %link(rel="stylesheet" href="css/styles.css")
+    %link(rel="stylesheet" href="http://localhost:4567/css/styles.css")
   %body
     #wrapper
       #header
         %h1 FerrumLogin presents
         %h2 Welcome to our website!!!
+        = p session['username']
+         
+        - if (session['username'])
+          %p= "Welcome, #{session['username']}."
+        - else
+          %p Please login.
+            
         
       #content
         =yield
