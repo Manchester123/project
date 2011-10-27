@@ -1,12 +1,7 @@
--#= @photos
--#- if @photos.size > 0 then
-
--#- else
+-if @photos.size > 0 then
+  %h1 Display all Pictures
+- else
   %h1 No photos to be displayed!
--#%p
--#- for i in 0..@photos.size
-  %img{:src=>"http://images.free-extras.com/pics/a/apples-553.jpg",:width=>"200" ,:height=>"200"}
-%h1 Display all Pictures
-%p
-  %img{:src=>"http://images.free-extras.com/pics/a/apples-553.jpg",:width=>"200" ,:height=>"200"}
-
+  %p
+- for i in 0..@photos.size-1
+  %img{:src=> "http://localhost:4567/photos/#{@photos[i]['name']}",:width=>"200" ,:height=>"200" }

@@ -161,6 +161,7 @@ post '/upload' do
       'description' => params[:description],
       'tags' => params[:tags],
       'name' => name,
+      'user_id' => session['id']
     }
     
     photos = Photo.new
@@ -195,9 +196,12 @@ post '/comment' do
 end
 
 get '/display' do
-   #@photos = [];
+   @photos = [];
    #for i=0..9 in
    #  photos[i] = Photos.new('User Story', "pic"+"#{i}" ,'just a user story', '--','pic1')
    #end
+  photo = Photo.new
+   #puts "id here "+"#{session['id']}"
+  @photos=photo.find_by_user_id(session['id'])
     haml :display
 end
