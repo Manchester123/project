@@ -97,10 +97,15 @@ describe "App Controller" do
     
     
   it "should response to search page" do
-    get '/search/1/winnie'
+    post '/search/1/winnie', params = {:category => 1, :words => 'winnie'}
     last_response.should be_ok
     
     search_util = SearchPhoto.new
     search_util.should respond_to(:search)
+  end
+  
+  it "should response to search page (get)" do
+    get '/search'
+    last_response.should be_ok
   end
 end

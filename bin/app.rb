@@ -97,7 +97,7 @@ get '/register' do
 end
 
 
-get '/search/:category/:words' do
+post '/search' do
 
   search_util = SearchPhoto.new
   @search_res = search_util.search(params)
@@ -105,6 +105,10 @@ get '/search/:category/:words' do
   haml :search_res
 end
 
+get '/search' do
+  
+  haml :search_pic 
+end
 #get '/view/:id' do
   
 #  id = params[:id]
@@ -162,21 +166,13 @@ end
 get '/view/:id' do
 
   id = params[:id]
+
   comment = Comment.new
   @comment_info = comment.get_comment(id)
-
+  
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
 
-end
-
-post '/search' do
-  params={};
-  category=params[:category]
-  key_words=params[:key_words]
-  dir= "./uploadedFiles/"
-
-  haml :show_image 
 end
 
 post '/comment' do

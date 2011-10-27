@@ -7,7 +7,7 @@ class Photo
   def add_photo(params)
     
     db = MysqlConnect.new
-    sql_query = "INSERT INTO photos (category, title, description, tags, name) value ('"+params['category']+"', '"+params['title']+"','"+params['description']+"', '"+params['tags']+"', '"+params['name']+"')"
+    sql_query = "INSERT INTO photos (category, title, description, tags, name) value ('"+params['category'].to_s+"', '"+params['title']+"','"+params['description']+"', '"+params['tags']+"', '"+params['name']+"')"
     db.make_query(sql_query, false)
     db.close
     

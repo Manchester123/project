@@ -34,10 +34,7 @@ class Comment
   
     db.close
   
-  
     return res
-    
-  
   end
     
 end
