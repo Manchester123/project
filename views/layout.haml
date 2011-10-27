@@ -12,7 +12,10 @@
         - if (session['username'])
           %p= "Welcome, #{session['username']}."
         - else
-          %p Please login.
+          %p 
+            Please 
+            %a{:href => "http://ferrumlogic.lcl:4567/"}
+              login.
             
         
       #content

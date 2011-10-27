@@ -5,10 +5,10 @@
       %td Category
       %td
         %select{:name => "category"}
-          %option{:value => 1} User Stories
-          %option{:value => 2} Analysis diagrams
-          %option{:value => 3} Design diagrams
-          %option{:value => 4} Retrospectives
+            %option{:value => 1} User Stories
+            %option{:value => 2} Analysis diagrams
+            %option{:value => 3} Design diagrams
+            %option{:value => 4} Retrospectives
     %tr
       %td Title
       %td 

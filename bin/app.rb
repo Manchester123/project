@@ -1,17 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'bundler/setup'
+#require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
 
 set :root, File.join(File.dirname(__FILE__), '..')
-#require File.dirname(__FILE__) + '/connector.rb'
-#require File.dirname(__FILE__) +'/models/user.rb'
-#require File.dirname(__FILE__) +'/models/photo.rb'
-#require File.dirname(__FILE__) +'/models/comment.rb'
-#require File.dirname(__FILE__) +'/utils.rb'
 enable :sessions
 
 get '/hi' do
@@ -22,15 +17,6 @@ get '/hi' do
 
   session['count']+=1
   session['username'].to_s
-  #session['id'].to_s
-  #db = MysqlConnect.new
-  #res = db.make_query("SELECT * from student", true)
-  
-  #res.each_hash do |row|
-  #  puts row['id']
-  #  puts row['name']
-  #end
-  #haml :hi
 end
 
 get '/' do
@@ -111,12 +97,18 @@ get '/register' do
 end
 
 
-get '/search' do
-  category = params[:category]
-  name = params[:name]
+post '/search' do
+
+  search_util = SearchPhoto.new
+  @search_res = search_util.search(params)
   
+  haml :search_res
 end
 
+get '/search' do
+  
+  haml :search_pic 
+end
 #get '/view/:id' do
   
 #  id = params[:id]
@@ -175,21 +167,14 @@ end
 get '/view/:id' do
 
   id = params[:id]
+
   comment = Comment.new
   @comment_info = comment.get_comment(id)
-
+  
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
-
-end
-
-post '/search' do
-  params={};
-  category=params[:category]
-  key_words=params[:key_words]
-  dir= "./uploadedFiles/"
-
-  haml :show_image 
+  
+  haml :show_image
 end
 
 post '/comment' do

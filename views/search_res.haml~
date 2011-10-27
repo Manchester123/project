@@ -1,0 +1,19 @@
+%h1 Search results
+- if @search_res.size == 0 then
+  %p no results :(
+- else
+  %p there are results!!! :)
+- 
+%table{:border => 1}
+  - @search_res.each do |photo|
+    %tr
+      %td
+        = photo['title']
+    %tr  
+      %td
+        %a{:href => "http://ferrumlogic.lcl:4567/view/#{photo["id"]}"}
+          %img{:src=>"http://localhost:4567/photos/#{photo["name"]}", :width=>"300"}
+    %tr  
+      %td 
+        = "Tags: " + photo['tags'].to_s
+      

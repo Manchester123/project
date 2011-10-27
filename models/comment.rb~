@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-require File.dirname(__FILE__) + '/../connector.rb'
->>>>>>> robdar
+#require File.dirname(__FILE__) + '/../connector.rb'
 require 'md5'
 
 class Comment
@@ -32,15 +29,12 @@ class Comment
     res = []
     comments.each_hash {|row|
       map={:description=>row['description'], :user_id=>row['user_id'], :pic_id=>row['pic_id']}
-      res << map
+      res.push(map)
     }
   
     db.close
   
-  
     return res
-    
-  
   end
     
 end
