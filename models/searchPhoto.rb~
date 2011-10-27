@@ -8,15 +8,16 @@ class SearchPhoto
     return [] if category == nil
     return [] if words == nil
     
-    query = "select * from photos where "
+    query = "select * from photos where( "
     words.strip.each(" "){ |q|
       q = q.strip
-      if query == "select * from photos where " then
+      if query == "select * from photos where( " then
         query = query + "title like '%#{q}%' or description like '%#{q}%' or tags like '%#{q}%'"
       else
         query = query + "or title like '%#{q}%' or description like '%#{q}%' or tags like '%#{q}%'"
       end
     }
+    query = query + ") and category=" + category.to_s
     puts query
     db = MysqlConnect.new
     info = db.make_query(query, true)
