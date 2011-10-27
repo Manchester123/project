@@ -142,7 +142,7 @@ post '/upload' do
     
     utils = Utils.new
     name = utils.generate_random_str(25) + ".jpg"
-    dir = "./public/photos"
+    dir = "../public/photos"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
@@ -159,7 +159,7 @@ post '/upload' do
     photos = Photo.new
     photos.add_photo(pars)
             
-    redirect '/upload'
+    redirect '/view/' + photos.get_id.to_s
     end
     
 end
