@@ -167,6 +167,15 @@ get '/view/:id' do
 
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
+
+end
+
+post '/search' do
+  params={};
+  category=params[:category]
+  key_words=params[:key_words]
+  dir= "./uploadedFiles/"
+
   haml :show_image 
 end
 
@@ -180,12 +189,4 @@ post '/comment' do
   comment.add_comment(params)
   
   redirect '/view/' + params[:pic_id].to_s
-end
-
-get '/display' do
-   #@photos = [];
-   #for i=0..9 in
-   #  photos[i] = Photos.new('User Story', "pic"+"#{i}" ,'just a user story', '--','pic1')
-   #end
-    haml :display
 end
