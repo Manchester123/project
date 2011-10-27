@@ -1,0 +1,19 @@
+%h1 Search
+%p
+  %form{ :action => "/search", :method => "post"}
+    %table
+      %tr
+        %td Category
+        %td
+          %select{:name => "category"}
+            %option{:value => 1} User Stories
+            %option{:value => 2} Analysis diagrams
+            %option{:value => 3} Design diagrams
+            %option{:value => 4} Retrospectives
+      %tr
+        %td Key Words
+        %td
+          %input{ :type => "text", :name => "key_words"}
+      %tr
+        %td{ :colspan => "2"}
+          %input{:type => "submit", :value=>"search"}
