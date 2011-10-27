@@ -14,6 +14,27 @@ class Photo
     return true;
   end
   
+  def get_id
+
+	db = MysqlConnect.new
+	sql_query = "SELECT MAX(id) as id FROM photos"
+	query = db.make_query(sql_query, true)
+	ret = [];
+    query.each_hash{ |row|
+
+
+      map = {
+        'id' => row['id'].to_i,
+      }
+      ret << map
+    }
+    db.close
+
+	
+	return ret[0]['id'];
+  
+  end
+  
   def find_by_id(id)
     
     db = MysqlConnect.new
