@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-#require 'bundler/setup'
+require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
