@@ -142,6 +142,7 @@ end
 
 post '/upload' do
 
+    session['error_upload'] = nil
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
@@ -168,7 +169,6 @@ post '/upload' do
       'user_id' => session['id']
     }
     
-    session['error_upload'] = nil
     photos = Photo.new
     photos.add_photo(pars)
             
