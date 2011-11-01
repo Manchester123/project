@@ -4,7 +4,7 @@ class Photo < Model
   
   def add_photo(params)
     
-    get_connection.make_query("INSERT INTO photos (category, title, description, tags, name) value ('"+params['category']+"', '"+params['title']+"','"+params['description']+"', '"+params['tags']+"', '"+params['name']+"')")
+    get_connection.make_query("INSERT INTO photos (category, title, description, tags, name, user_id) value ('"+params['category']+"', '"+params['title']+"','"+params['description']+"', '"+params['tags']+"', '"+params['name']+"', " + params['user_id'] + ")")
     close_connection    
     
     return true;
