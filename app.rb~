@@ -1,12 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require File.dirname(__FILE__) + '/connector.rb'
-require File.dirname(__FILE__) +'/models/model.rb'
-require File.dirname(__FILE__) +'/models/user.rb'
-require File.dirname(__FILE__) +'/models/photo.rb'
-require File.dirname(__FILE__) +'/models/comment.rb'
-require File.dirname(__FILE__) +'/utils.rb'
+
+require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
 enable :sessions
 
 get '/hi' do

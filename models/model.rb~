@@ -19,6 +19,6 @@ class Model
     sql_obj.each_hash{ |row|
       ret << row
     }
-    return 
+    return ret
   end
 end

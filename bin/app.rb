@@ -41,17 +41,23 @@ post '/login' do
     user_info = user.get_user_info_by_name(username)
     session['id'] = user_info['id']
     session['username'] = user_info['username']
-    
+    session['error_login'] = nil
+    session['error_password'] = nil
+    session['error_username'] = nil
     haml :login_success
   else
-    haml :login_failure
+    session['error_login'] = "incorrect login or password"
+    redirect '/'
   end
 end
 
 get '/logout' do
   session['id'] = nil
   session['username'] = nil
-  
+  session['error_login'] = nil
+  session['error_username'] = nil
+  session['error_password'] = nil
+  session['error_upload'] = nil
   redirect '/'
 end
 
@@ -61,14 +67,19 @@ post '/register' do
   pwd = params[:pwd]
   cpwd = params[:cpwd]
   
+  session['error_username'] = nil
+  session['error_password'] = nil
+  
   utils = Utils.new
   username = utils.validate(username)
   
   if !utils.validate_password(pwd, cpwd) then
+    session['error_password'] = "password does not match an account our records"
     redirect '/register'
   end
   
   if !utils.validate_username(username) then
+    session['error_username'] = "username does not match an account our records"
     redirect '/register'
   end
     
@@ -134,7 +145,8 @@ post '/upload' do
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
-          
+               
+          session['error_upload'] = "Failed to upload image, try later"
           redirect '/upload'
     end 
     unless params[:file][:filename].nil?
@@ -156,6 +168,7 @@ post '/upload' do
       'user_id' => session['id']
     }
     
+    session['error_upload'] = nil
     photos = Photo.new
     photos.add_photo(pars)
             
