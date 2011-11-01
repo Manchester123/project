@@ -155,7 +155,7 @@ post '/upload' do
     
     utils = Utils.new
     name = utils.generate_random_str(25) + ".jpg"
-    dir = "../public/photos"
+    dir = "./public/photos"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
@@ -190,6 +190,30 @@ get '/view/:id' do
   
   
   haml :show_image
+end
+
+get '/remove/:id' do
+
+	#check image belongs to the current user
+	
+    pic_id = params[:id]
+    
+    photo = Photo.new
+    p pic_id
+    id = photo.get_user_id(pic_id)
+    p id
+    p session['id']
+    #return
+    #if user == photo.user_id then
+    
+    puts session['id']
+    
+    if(session['id']==photo.get_user_id(pic_id))then
+        photo.delete_image(pic_id.to_i)
+        redirect '/upload'
+    end
+    
+    redirect '/view/' + pic_id.to_s
 end
 
 post '/comment' do
