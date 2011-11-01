@@ -181,6 +181,10 @@ get '/view/:id' do
 
   id = params[:id].to_i
 
+  if (session['id']==nil)
+      redirect '/'
+  end
+
   comment = Comment.new
   @comment_info = comment.get_comment(id)
   
@@ -188,11 +192,15 @@ get '/view/:id' do
   @photo_info = photo.find_by_id(id)
   @all_photos = photo.find_by_user_id(session['id'])
 
+  puts "user is: "+"#{session['id']}"
+
   id_table=[]
   @all_photos.each { |photo|
-      id_table.push(photo['id'])
+      id_table.push(photo['id'].to_i)
   }
 
+  p id_table
+  p id
   found = id_table.index(id)
   @next = (id == id_table.last) ? id : id_table[found + 1]
   @previous = (id == id_table.first) ? id : id_table[found - 1]
