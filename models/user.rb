@@ -1,5 +1,3 @@
-#require File.dirname(__FILE__) + '/../connector.rb'
-#require File.dirname(__FILE__) + '/../utils.rb'
 require 'md5'
 
 class User < Model
