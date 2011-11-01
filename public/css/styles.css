@@ -61,3 +61,36 @@ a{
     text-decoration:none;
 }
 
+/*---------------------DISPLAYING GALLERY ADDITIONS---------------------------------*/
+
+.thumbnail img{
+    padding: 1px;
+    border: 1px solid #ffffff;
+    border-color: #ffffff;
+    text-align:center;
+}
+
+.thumbnail:hover{
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.thumbnail:hover img{
+border: 1px solid gray;
+}
+
+.button{
+    font-size: 12px;
+}
+
+.buttonl{
+  text-align: left;
+}
+
+.buttonr{
+    position: absolute;
+    right: 390px;
+    text-align: right;
+}
+
+

@@ -27,4 +27,6 @@ describe Photo do
     info.length.should == 0
   end
 
+
+
 end

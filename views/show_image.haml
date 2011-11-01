@@ -1,6 +1,9 @@
 %h1 
   = @photo_info['title']
 %img{:src=>"http://localhost:4567/photos/#{@photo_info["name"]}", :width=>"800"}
+%br
+%a{:href=>"http://localhost:4567/view/"+"#{@previous}",:class=>"buttonl"} <=Previous
+%a{:href=>"http://localhost:4567/view/"+"#{@next}",:class=>"buttonr"} Next=>
 %h1 Comments on photo
 - if @comment_info.size > 0 then
   - @comment_info.each do |comment|

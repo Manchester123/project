@@ -108,4 +108,9 @@ describe "App Controller" do
     get '/search'
     last_response.should be_ok
   end
+
+  it "should responce to display page (get)" do
+    get '/display'
+    last_response.should be_ok
+  end
 end

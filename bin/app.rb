@@ -142,7 +142,7 @@ post '/upload' do
     
     utils = Utils.new
     name = utils.generate_random_str(25) + ".jpg"
-    dir = "../public/photos"
+    dir = "./public/photos/"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
@@ -166,14 +166,25 @@ end
 
 get '/view/:id' do
 
-  id = params[:id]
+  id = params[:id].to_i
 
   comment = Comment.new
   @comment_info = comment.get_comment(id)
   
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
-  
+  @all_photos = photo.find_by_user_id(session['id'])
+
+  id_table=[]
+  @all_photos.each { |photo|
+      id_table.push(photo['id'])
+  }
+
+  found = id_table.index(id)
+  @next = (id == id_table.last) ? id : id_table[found + 1]
+  @previous = (id == id_table.first) ? id : id_table[found - 1]
+
+
   haml :show_image
 end
 
@@ -199,3 +210,4 @@ get '/display' do
   @photos=photo.find_by_user_id(session['id'])
     haml :display
 end
+
