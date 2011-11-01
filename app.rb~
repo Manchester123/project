@@ -65,6 +65,7 @@ get '/logout' do
   session['username'] = nil
   session['error_username'] = nil
   session['error_password'] = nil
+  session['error_upload'] = nil
   redirect '/'
 end
 
@@ -91,7 +92,7 @@ post '/register' do
     
   params = {};
   params['username'] = username
-  params['password'] = pwd;
+  params['password'] = pwd
   
   user = User.new
   status = user.register(params)
@@ -145,7 +146,7 @@ post '/upload' do
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
-          
+          session['error_upload'] = "Failed to upload image, try later"
           redirect '/upload'
     end 
     unless params[:file][:filename].nil?
@@ -168,7 +169,8 @@ post '/upload' do
     
     photos = Photo.new
     photos.add_photo(pars)
-            
+    
+    session['error_upload'] = nil
     redirect '/upload'
     end
     
