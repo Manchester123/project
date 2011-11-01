@@ -1,2 +1,0 @@
-%h1 Login failure
-    Try login %a{:href => '/'}again
