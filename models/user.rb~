@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 require File.dirname(__FILE__) + '/../connector.rb'
 require File.dirname(__FILE__) + '/../utils.rb'
@@ -27,6 +28,22 @@ class User
     return false if res.size == 0
     user_info = res[0]
 
+=======
+require File.dirname(__FILE__) + '/../connector.rb'
+require File.dirname(__FILE__) + '/../utils.rb'
+require 'md5'
+
+class User < Model
+  
+  def try_login(username, password)
+    
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username + "'", true)
+    res = map_data(user_info)
+    close_connection
+    return false if res.size == 0
+    
+    user_info = res[0]
+>>>>>>> robdar
     utils = Utils.new
 
     password_hash = utils.get_hash(password) + utils.get_hash(user_info['salt'])
@@ -41,6 +58,7 @@ class User
     username = params['username']
     password = params['password']
     
+<<<<<<< HEAD
     db = MysqlConnect.new
     user_info = db.make_query("SELECT * FROM accounts where username='" + username +"'", true)
     
@@ -58,6 +76,13 @@ class User
     }
     if res.size > 0 then
       db.close
+=======
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    res = map_data(user_info)
+    
+    if res.size > 0 then
+      close_connection
+>>>>>>> robdar
       return false
     end
 
@@ -66,13 +91,21 @@ class User
     password = utils.get_hash(password) + utils.get_hash(salt)
     password = utils.get_hash(password)
     time = utils.get_current_time
+<<<<<<< HEAD
         
     db.make_query("INSERT INTO accounts (username, password, date_reg, salt) values ('" + username +"', '" + password +"', '" + time +"','" + salt + "')")
     db.close
+=======
+    
+    get_connection.make_query("INSERT INTO accounts (username, password, date_reg, salt) values ('" + username +"', '" + password +"', '" + time +"','" + salt + "')")    
+    close_connection
+    
+>>>>>>> robdar
     return true
   end
 
   def get_user_info_by_name(username)
+<<<<<<< HEAD
     db = MysqlConnect.new
     user_info = db.make_query("SELECT * FROM accounts where username='" + username +"'", true)
     
@@ -87,6 +120,13 @@ class User
       res << map
     }
     db.close
+=======
+    
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    res = map_data(user_info)
+    close_connection
+    
+>>>>>>> robdar
     return res[0]
   end
 end
