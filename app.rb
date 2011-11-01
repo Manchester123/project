@@ -50,17 +50,21 @@ post '/login' do
     user_info = user.get_user_info_by_name(username)
     session['id'] = user_info['id']
     session['username'] = user_info['username']
-    
+    session['error_login'] = nil
+    session['error_password'] = nil
+    session['error_username'] = nil
     haml :login_success
   else
-    haml :login_failure
+    session['error_login'] = "incorrect login or password"
+    redirect '/'
   end
 end
 
 get '/logout' do
   session['id'] = nil
   session['username'] = nil
-  
+  session['error_username'] = nil
+  session['error_password'] = nil
   redirect '/'
 end
 
@@ -72,17 +76,20 @@ post '/register' do
   
   utils = Utils.new
   username = utils.validate(username)
+  session['error_username'] = nil
+  session['error_password'] = nil
   
   if !utils.validate_password(pwd, cpwd) then
+    session['error_password'] = "password does not match an account our records"
     redirect '/register'
   end
   
   if !utils.validate_username(username) then
+    session['error_username'] = "username does not match an account our records"
     redirect '/register'
   end
     
   params = {};
-  #params << username << pwd << cpwd
   params['username'] = username
   params['password'] = pwd;
   
@@ -101,6 +108,7 @@ get '/register' do
   if(session['id']) then
     redirect '/upload'
   end
+  
 
   haml :register
 end

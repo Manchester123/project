@@ -1,3 +1,4 @@
+require '../models/model'
 require '../models/user'
 
 describe User do
