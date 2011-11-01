@@ -1,4 +1,3 @@
-#require File.dirname(__FILE__) + '/../connector.rb'
 require 'md5'
 
 class Comment < Model
@@ -7,7 +6,11 @@ class Comment < Model
   def add_comment(map)
     return false if !validate_add(map)
     
-    sql = "INSERT INTO comments (description, user_id, pic_id) value ('" + map[:description] + "', " + map[:user_id].to_s + ", " + map[:pic_id].to_s + ")"
+    utils = Utils.new
+    map = utils.validate_params(map)
+    time = utils.get_current_time
+    
+    sql = "INSERT INTO comments (description, user_id, pic_id, date) value ('" + map[:description] + "', " + map[:user_id].to_s + ", " + map[:pic_id].to_s + ", '"+time+"')"
     get_connection.make_query(sql)
     close_connection
     
@@ -16,7 +19,7 @@ class Comment < Model
   
   def get_comment(picture_id)
   
-    comments = get_connection.make_query("SELECT * FROM comments where pic_id=" + picture_id.to_s, true)
+    comments = get_connection.make_query("SELECT * FROM comments left join accounts on comments.user_id=accounts.id where pic_id=" + picture_id.to_s, true)
     res = map_data(comments)
     close_connection
     
