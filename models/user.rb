@@ -2,28 +2,16 @@
 #require File.dirname(__FILE__) + '/../utils.rb'
 require 'md5'
 
-class User
+class User < Model
   
   def try_login(username, password)
     
-    db = MysqlConnect.new
-    user_info = db.make_query("SELECT * FROM accounts where username='" + username + "'", true)
-    res = []
-    user_info.each_hash{ |row|
-      map = {
-        'username' => row['username'],
-        'password' => row['password'],
-        'salt' => row['salt'],
-        'date_reg' => row['date_reg'],
-        'id' => row['id']
-      }
-      res << map
-    }
-    
-    db.close
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username + "'", true)
+    res = map_data(user_info)
+    close_connection
     return false if res.size == 0
+    
     user_info = res[0]
-
     utils = Utils.new
 
     password_hash = utils.get_hash(password) + utils.get_hash(user_info['salt'])
@@ -38,23 +26,11 @@ class User
     username = params['username']
     password = params['password']
     
-    db = MysqlConnect.new
-    user_info = db.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    res = map_data(user_info)
     
-    res = []
-    user_info.each_hash{ |row|
-      
-      map = {
-        'username' => row['username'],
-        'password' => row['password'],
-        'salt' => row['salt'],
-        'date_reg' => row['date_reg'],
-        'id' => row['id']
-      }
-      res << map
-    }
     if res.size > 0 then
-      db.close
+      close_connection
       return false
     end
 
@@ -63,27 +39,19 @@ class User
     password = utils.get_hash(password) + utils.get_hash(salt)
     password = utils.get_hash(password)
     time = utils.get_current_time
-        
-    db.make_query("INSERT INTO accounts (username, password, date_reg, salt) values ('" + username +"', '" + password +"', '" + time +"','" + salt + "')")
-    db.close
+    
+    get_connection.make_query("INSERT INTO accounts (username, password, date_reg, salt) values ('" + username +"', '" + password +"', '" + time +"','" + salt + "')")    
+    close_connection
+    
     return true
   end
 
   def get_user_info_by_name(username)
-    db = MysqlConnect.new
-    user_info = db.make_query("SELECT * FROM accounts where username='" + username +"'", true)
     
-    res = []
-    user_info.each_hash{ |row|
-      map = {
-        'username' => row['username'],
-        'password' => row['password'],
-        'id' => row['id'],
-        'date_reg' => row['date_reg'],
-      }
-      res << map
-    }
-    db.close
+    user_info = get_connection.make_query("SELECT * FROM accounts where username='" + username +"'", true)
+    res = map_data(user_info)
+    close_connection
+    
     return res[0]
   end
 end

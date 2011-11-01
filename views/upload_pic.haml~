@@ -5,10 +5,19 @@
       %td Category
       %td
         %select{:name => "category"}
+<<<<<<< HEAD
             %option{:value => 1} User Stories
             %option{:value => 2} Analysis diagrams
             %option{:value => 3} Design diagrams
             %option{:value => 4} Retrospectives
+=======
+          %option{:value => 1} first category
+          %option{:value => 2} second category
+          %option{:value => 3} third category
+          %option{:value => 4} fourth category
+          %option{:value => 5} fifth category
+          %option{:value => 6} sixth category
+>>>>>>> robdar
     %tr
       %td Title
       %td 
@@ -27,4 +36,11 @@
         %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
         %input{ :type => "file", :name => "file"}
         %input{ :type => "submit", :value => "Upload"}
+<<<<<<< HEAD
 
+=======
+    %tr
+      %td{ :colspan => "2"}
+        - if (session['error_upload'])
+          %p= session['error_upload']
+>>>>>>> robdar

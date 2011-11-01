@@ -1,4 +1,4 @@
-require '../models/user'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
 
 describe User do
   before :each do

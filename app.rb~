@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require File.dirname(__FILE__) + '/connector.rb'
+require File.dirname(__FILE__) +'/models/model.rb'
 require File.dirname(__FILE__) +'/models/user.rb'
 require File.dirname(__FILE__) +'/models/photo.rb'
 require File.dirname(__FILE__) +'/models/comment.rb'
@@ -49,19 +50,23 @@ post '/login' do
     user_info = user.get_user_info_by_name(username)
     session['id'] = user_info['id']
     session['username'] = user_info['username']
-    
+    session['error_login'] = nil
+    session['error_password'] = nil
+    session['error_username'] = nil
     haml :login_success
   else
-    haml :login_failure
+    session['error_login'] = "incorrect login or password"
+    redirect '/'
   end
 end
 
 get '/logout' do
   session['id'] = nil
   session['username'] = nil
-  
+  session['error_username'] = nil
+  session['error_password'] = nil
+  session['error_upload'] = nil
   redirect '/'
-  
 end
 
 post '/register' do
@@ -72,25 +77,28 @@ post '/register' do
   
   utils = Utils.new
   username = utils.validate(username)
+  session['error_username'] = nil
+  session['error_password'] = nil
   
   if !utils.validate_password(pwd, cpwd) then
+    session['error_password'] = "password does not match an account our records"
     redirect '/register'
   end
   
   if !utils.validate_username(username) then
+    session['error_username'] = "username does not match an account our records"
     redirect '/register'
   end
     
   params = {};
-  #params << username << pwd << cpwd
   params['username'] = username
-  params['password'] = pwd;
+  params['password'] = pwd
   
   user = User.new
   status = user.register(params)
   
   if status then
-    redirect "/hi"
+    redirect "/"
   else
     redirect "/register"
   end
@@ -101,6 +109,7 @@ get '/register' do
   if(session['id']) then
     redirect '/upload'
   end
+  
 
   haml :register
 end
@@ -109,7 +118,6 @@ end
 get '/search' do
   category = params[:category]
   name = params[:name]
-  
   
 end
 
@@ -130,7 +138,6 @@ get '/upload' do
       redirect '/'
     end
 
-
     haml :upload_pic
 end
 
@@ -139,7 +146,7 @@ post '/upload' do
     unless params[:file] &&
                (tempfile = params[:file][:tempfile]) &&
                (name = params[:file][:filename])
-          
+          session['error_upload'] = "Failed to upload image, try later"
           redirect '/upload'
     end 
     unless params[:file][:filename].nil?
@@ -162,7 +169,8 @@ post '/upload' do
     
     photos = Photo.new
     photos.add_photo(pars)
-            
+    
+    session['error_upload'] = nil
     redirect '/upload'
     end
     

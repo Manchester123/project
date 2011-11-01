@@ -16,5 +16,7 @@
           %input{:type => "submit", :value=>"login"}
       %tr
         %td{ :colspan => "2"}
+          = p session['username']
+         
           - if (session['error_login'])
             %p= session['error_login']

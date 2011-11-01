@@ -27,4 +27,7 @@
         %input{ :type => "hidden", :name => "MAX_FILE_SIZE", :value => "500"}
         %input{ :type => "file", :name => "file"}
         %input{ :type => "submit", :value => "Upload"}
-
+    %tr
+      %td{ :colspan => "2"}
+        - if (session['error_upload'])
+          %p= session['error_upload']
