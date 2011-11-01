@@ -15,7 +15,12 @@
         %td confirm password
         %td 
           %input{ :type => "password", :name => "cpwd"}
-      %trRn
+      %tr
         %td{ :colspan => "2"}
           %input{:type => "submit", :value=>"register"}
-        
+      %tr
+        %td{ :colspan => "2"}
+          - if (session['error_password'])
+            %p= session['error_password']
+          - elsif (session['error_username'])
+            %p= session['error_username']

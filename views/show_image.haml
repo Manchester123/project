@@ -8,7 +8,7 @@
 - if @comment_info.size > 0 then
   - @comment_info.each do |comment|
     %p
-      = comment[:description] + ", " + comment[:user_id]
+      = comment['description'] + ", " + comment['user_id']
   %p comments!!
 - else
   %p no comments :(
