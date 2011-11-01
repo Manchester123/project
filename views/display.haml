@@ -3,12 +3,13 @@
 - else
   %h1 No photos to be displayed!
 
-
 - for i in 0..@photos.size-1
   %tr
     %td
       %a{:href => "http://localhost:4567/view/#{@photos[i]['id']}"}
         %img{:class=>"thumbnail" , :src=> "http://localhost:4567/photos/#{@photos[i]['name']}",:width=>"200" ,:height=>"200" ,:border=>"1"}
+
+
 
   -#%h1 #{@photos[i]['name']}
 

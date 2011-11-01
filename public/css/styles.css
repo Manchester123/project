@@ -79,6 +79,11 @@ a{
 border: 1px solid gray;
 }
 
+.caption{
+    text-align: center;
+    color: green;
+}
+
 .button{
     font-size: 12px;
 }

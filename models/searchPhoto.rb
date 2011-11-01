@@ -1,6 +1,6 @@
 class SearchPhoto
   
-  def search(params)
+  def search(params,id)
     
     category = params[:category]
     words = params[:words]
@@ -18,6 +18,7 @@ class SearchPhoto
       end
     }
     query = query + ") and category=" + category.to_s
+    query = query + " and user_id=" + id.to_s
     puts query
     db = MysqlConnect.new
     info = db.make_query(query, true)

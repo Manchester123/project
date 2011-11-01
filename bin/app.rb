@@ -111,7 +111,8 @@ end
 post '/search' do
 
   search_util = SearchPhoto.new
-  @search_res = search_util.search(params)
+
+  @search_res = search_util.search(params,session['id'])
   
   haml :search_res
 end
@@ -199,11 +200,14 @@ get '/view/:id' do
       id_table.push(photo['id'].to_i)
   }
 
-  p id_table
-  p id
+  #p id_table
+  #p id
   found = id_table.index(id)
   @next = (id == id_table.last) ? id : id_table[found + 1]
   @previous = (id == id_table.first) ? id : id_table[found - 1]
+
+  @flag1 = (id == id_table.last) ? false : true
+  @flag2 = (id == id_table.first) ? false : true
 
 
   haml :show_image

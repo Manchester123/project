@@ -2,8 +2,25 @@
   = @photo_info['title']
 %img{:src=>"http://localhost:4567/photos/#{@photo_info["name"]}", :width=>"800"}
 %br
-%a{:href=>"http://localhost:4567/view/"+"#{@previous}",:class=>"buttonl"} <=Previous
-%a{:href=>"http://localhost:4567/view/"+"#{@next}",:class=>"buttonr"} Next=>
+- if (@flag2==true)
+  %a{:href=>"http://localhost:4567/view/"+"#{@previous}",:class=>"buttonl"} <=Previous
+- if (@flag1==true)
+  %a{:href=>"http://localhost:4567/view/"+"#{@next}",:class=>"buttonr"} Next=>
+
+%br
+- if (@photo_info['tags'].size!=0) then
+  %h4
+    = "Tags : "+"#{@photo_info['tags']}"
+- else
+  %h4 No tags
+
+- if (@photo_info['description'].size!=0) then
+  %h4
+    = "Description : "+"#{@photo_info['description']}"
+- else
+  %h4 No Description
+
+
 %h1 Comments on photo
 - if @comment_info.size > 0 then
   - @comment_info.each do |comment|
