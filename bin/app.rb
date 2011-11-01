@@ -187,6 +187,8 @@ get '/view/:id' do
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
   
+  
+  
   haml :show_image
 end
 
