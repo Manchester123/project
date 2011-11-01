@@ -43,4 +43,21 @@ class Photo < Model
     return [] if ret.length == 0
     return ret
   end
+    
+  def get_user_id(pic_id)
+        
+      info=get_connection.make_query("SELECT user_id FROM ruby.photos where id=#{pic_id}", true)
+      ret = map_data(info)
+      close_connection
+      
+      return ret[0]['user_id']
+  end
+  
+  def delete_image(id)
+
+  	get_connection.make_query("DELETE FROM ruby.photos where id=#{id}")
+	close_connection
+  	
+  end
+  
 end

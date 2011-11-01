@@ -40,3 +40,6 @@
         %input{ :type => "submit", :value => "Submit"}
         %input{ :type => "hidden", :name => "user_id", :value => "#{session["id"]}"}
         %input{ :type => "hidden", :name => "pic_id", :value => "#{@photo_info["id"]}"}
+      %td
+        %a{:href => "http://localhost:4567/remove/#{@photo_info["id"]}"} Delete image
+        

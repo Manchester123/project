@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-#require 'bundler/setup'
+require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
@@ -209,8 +209,31 @@ get '/view/:id' do
   @flag1 = (id == id_table.last) ? false : true
   @flag2 = (id == id_table.first) ? false : true
 
-
   haml :show_image
+end
+
+get '/remove/:id' do
+
+	#check image belongs to the current user
+	
+    pic_id = params[:id]
+    
+    photo = Photo.new
+    p pic_id
+    id = photo.get_user_id(pic_id)
+    p id
+    p session['id']
+    #return
+    #if user == photo.user_id then
+    
+    puts session['id']
+    
+    if(session['id']==photo.get_user_id(pic_id))then
+        photo.delete_image(pic_id.to_i)
+        redirect '/upload'
+    end
+    
+    redirect '/view/' + pic_id.to_s
 end
 
 post '/comment' do
