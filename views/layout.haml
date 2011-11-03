@@ -10,13 +10,16 @@
         = p session['username']
          
         - if (session['username'])
-          %p= "Welcome, #{session['username']}." 
-          %a{:href => "http://ferrumlogic.lcl:4567/logout"} logout
+          %p= "Welcome, #{session['username']}!" 
+          %a{:href => "http://ferrumlogic.lcl:4567/logout"} 
+            logout
         - else
           %p 
             Please 
-            %a{:href => "http://ferrumlogic.lcl:4567/"}
-              login.
+            %a{:href => "http://ferrumlogic.lcl:4567/"} login
+            or
+            %a{:href => "http://ferrumlogic.lcl:4567/register"}
+              register
             
         
       #content
@@ -24,4 +27,4 @@
 
       #footer
         %p
-          All right reserved by our team :)
+          All right reserved by FerrumLogic :)

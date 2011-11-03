@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-#require 'bundler/setup'
+require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'cmsasd')
@@ -111,7 +111,8 @@ end
 post '/search' do
 
   search_util = SearchPhoto.new
-  @search_res = search_util.search(params)
+
+  @search_res = search_util.search(params,session['id'])
   
   haml :search_res
 end
@@ -155,7 +156,7 @@ post '/upload' do
     
     utils = Utils.new
     name = utils.generate_random_str(25) + ".jpg"
-    dir = "../public/photos"
+    dir = "./public/photos/"
     path = File.join(dir, name)
 
     File.open(path, "wb"){|f| f.write(tempfile.read)}
@@ -179,15 +180,60 @@ end
 
 get '/view/:id' do
 
-  id = params[:id]
+  id = params[:id].to_i
+
+  if (session['id']==nil)
+      redirect '/'
+  end
 
   comment = Comment.new
   @comment_info = comment.get_comment(id)
   
   photo = Photo.new
   @photo_info = photo.find_by_id(id)
-  
+  @all_photos = photo.find_by_user_id(session['id'])
+
+  puts "user is: "+"#{session['id']}"
+
+  id_table=[]
+  @all_photos.each { |photo|
+      id_table.push(photo['id'].to_i)
+  }
+
+  #p id_table
+  #p id
+  found = id_table.index(id)
+  @next = (id == id_table.last) ? id : id_table[found + 1]
+  @previous = (id == id_table.first) ? id : id_table[found - 1]
+
+  @flag1 = (id == id_table.last) ? false : true
+  @flag2 = (id == id_table.first) ? false : true
+
   haml :show_image
+end
+
+get '/remove/:id' do
+
+	#check image belongs to the current user
+	
+    pic_id = params[:id]
+    
+    photo = Photo.new
+    p pic_id
+    id = photo.get_user_id(pic_id)
+    p id
+    p session['id']
+    #return
+    #if user == photo.user_id then
+    
+    puts session['id']
+    
+    if(session['id']==photo.get_user_id(pic_id))then
+        photo.delete_image(pic_id.to_i)
+        redirect '/upload'
+    end
+    
+    redirect '/view/' + pic_id.to_s
 end
 
 post '/comment' do
@@ -212,3 +258,4 @@ get '/display' do
   @photos=photo.find_by_user_id(session['id'])
     haml :display
 end
+
