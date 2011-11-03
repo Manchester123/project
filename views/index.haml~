@@ -1,4 +1,13 @@
-%h1 Login  
+%table
+  %tr
+    %td{:colspan => "2", :align => "center"}  
+      Ferrum Logic Team:)
+  %tr
+    %td
+      %img{:src => "http://localhost:4567/photos/team.jpg", :width => "300"}
+    %td
+      %img{:src => "http://localhost:4567/photos/team2.jpg", :width => "300"}
+%h1 Login     
 %p
   %form{ :action => "/login", :method => "post"}
     %table

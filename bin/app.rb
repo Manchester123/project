@@ -259,3 +259,7 @@ get '/display' do
     haml :display
 end
 
+
+get '/about' do
+  haml :about
+end
