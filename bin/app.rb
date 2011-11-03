@@ -230,7 +230,7 @@ get '/remove/:id' do
     
     if(session['id']==photo.get_user_id(pic_id))then
         photo.delete_image(pic_id.to_i)
-        redirect '/upload'
+        redirect '/display'
     end
     
     redirect '/view/' + pic_id.to_s
