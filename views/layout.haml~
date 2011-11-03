@@ -13,6 +13,9 @@
           %p= "Welcome, #{session['username']}!" 
           %ul
             %li
+              %a{:href => "http://ferrumlogic.lcl:4567/display"} 
+                Display
+            %li
               %a{:href => "http://ferrumlogic.lcl:4567/search"} 
                 Search
             %li
@@ -20,7 +23,7 @@
                 Upload
             %li
               %a{:href => "http://ferrumlogic.lcl:4567/logout"} 
-                logout
+                Logout
         - else
           %p 
             Please 
