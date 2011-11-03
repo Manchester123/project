@@ -11,8 +11,16 @@
          
         - if (session['username'])
           %p= "Welcome, #{session['username']}!" 
-          %a{:href => "http://ferrumlogic.lcl:4567/logout"} 
-            logout
+          %ul
+            %li
+              %a{:href => "http://ferrumlogic.lcl:4567/search"} 
+                Search
+            %li
+              %a{:href => "http://ferrumlogic.lcl:4567/upload"} 
+                Upload
+            %li
+              %a{:href => "http://ferrumlogic.lcl:4567/logout"} 
+                Logout
         - else
           %p 
             Please 
