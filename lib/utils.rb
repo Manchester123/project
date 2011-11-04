@@ -1,6 +1,7 @@
 require 'md5'
 
 class Utils
+  
   def validate(input)
     #validation of string goes here
     return input
@@ -43,7 +44,9 @@ class Utils
   end
   
   def addslashes(str) 
-    str = str.gsub(/['"\\\x0]/,'\\\\\0')
+    if str.class == String then
+      str = str.gsub(/['"\\\x0]/,'\\\\\0')
+    end
     return str
   end
 end

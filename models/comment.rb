@@ -1,14 +1,14 @@
 require 'md5'
 
 class Comment < Model
+
   attr_accessor :comment_id, :description, :pic_id, :user_id
   
   def add_comment(map)
     return false if !validate_add(map)
     
-    utils = Utils.new
-    map = utils.validate_params(map)
-    time = utils.get_current_time
+    map = Utils.instance.validate_params(map)
+    time = Utils.instance.get_current_time
     
     sql = "INSERT INTO comments (description, user_id, pic_id, date) value ('" + map[:description] + "', " + map[:user_id].to_s + ", " + map[:pic_id].to_s + ", '"+time+"')"
     get_connection.make_query(sql)

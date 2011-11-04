@@ -50,6 +50,7 @@ class User < Model
     res = map_data(user_info)
     close_connection
     
+    return [] if res.size == 0
     return res[0]
   end
 end

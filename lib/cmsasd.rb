@@ -1,5 +1,6 @@
 $: << File.join(File.dirname(__FILE__), '..', 'models')
 $: << File.join(File.dirname(__FILE__))
+require 'singleton'
 require 'connector'
 require 'model'
 require 'comment'

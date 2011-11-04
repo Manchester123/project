@@ -1,4 +1,4 @@
-class SearchPhoto
+class SearchPhoto < Model
   
   def search(params,id)
     
@@ -7,6 +7,34 @@ class SearchPhoto
     
     return [] if category == nil
     return [] if words == nil
+    
+    query = build_query(words, category, id)
+    info = get_connection.make_query(query, true)
+    ret = map_data(info)
+    close_connection
+    
+    return ret
+#    db = MysqlConnect.new
+#    info = db.make_query(query, true)
+#    db.close
+    
+#    ret = []
+#    info.each_hash{ |row|
+    
+#      map = {
+#        'id' => row['id'].to_i,
+#        'title' => row['title'],
+#        'description' => row['description'],
+#        'name' => row['name'],
+#        'tags' => row['tags'],
+#      }
+#      ret << map
+#    }
+    
+#    return ret
+  end
+
+  def build_query(words, category, id)
     
     query = "select * from photos where( "
     words.strip.each(" "){ |q|
@@ -19,24 +47,7 @@ class SearchPhoto
     }
     query = query + ") and category=" + category.to_s
     query = query + " and user_id=" + id.to_s
-    puts query
-    db = MysqlConnect.new
-    info = db.make_query(query, true)
-    db.close
-    
-    ret = []
-    info.each_hash{ |row|
-    
-      map = {
-        'id' => row['id'].to_i,
-        'title' => row['title'],
-        'description' => row['description'],
-        'name' => row['name'],
-        'tags' => row['tags'],
-      }
-      ret << map
-    }
-    
-    return ret
+
+    return query
   end
 end

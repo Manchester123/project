@@ -49,16 +49,20 @@ describe "App Controller" do
 	post '/register', params = {:username => 'darik', :pwd => "123543", :cpwd => "123543"}
 	user = User.new
 	user.should respond_to(:register)
-	last_response.should be_redirect
     end
+
+  it "should redirect to / after successfull registration of the user" do
+    post '/register', params = {:username => 'someone', :pwd => "someone123", :cpwd => "someone123"}
+    last_resopnse.should be_redirect
+  end
     
-    it "should redirect if session has already been set" do
+    it "should redirect if session has already been set and user tries to get to register page" do
 	post '/login', params = {:username => "robrob", :password => "robrob"}#change password or username to fail the test
 	get '/register'
 	last_response.should be_redirect
     end
     
-    it "should redirect if session has already been set" do
+    it "should redirect if session has already been set and user tries to get login page" do
 	post '/login', params = {:username => "robrob", :password => "robrob"}#change password or username to fail the test
 	get '/'
 	last_response.should be_redirect
@@ -109,7 +113,7 @@ describe "App Controller" do
     last_response.should be_ok
   end
 
-  it "should responce to display page (get)" do
+  it "should response to display page (get)" do
     get '/display'
     last_response.should be_ok
   end
